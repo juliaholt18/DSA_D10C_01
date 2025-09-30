@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define a maximum stack size for the iterative traversal
-// This is used for the explicit stack necessary for the iterative inorder traversal.
+
 #define STACK_SIZE 100
 
-// --- Structure Definitions ---
+
 
 struct Node {
     int data;
@@ -13,7 +12,7 @@ struct Node {
     struct Node* right;
 };
 
-// Simple Stack for Iterative Traversal
+
 struct Node* stack[STACK_SIZE];
 int top = -1;
 
@@ -30,7 +29,7 @@ struct Node* pop() {
     return NULL;
 }
 
-// --- Basic Utility Functions ---
+
 
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -44,9 +43,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// ------------------------------------------------------------------
-// --- 1. Non-Recursive (Iterative) Insertion Function ---
-// ------------------------------------------------------------------
 
 struct Node* insertIterative(struct Node* root, int data) {
     // 1. Handle the case of an empty tree (Base Case)
@@ -56,7 +52,7 @@ struct Node* insertIterative(struct Node* root, int data) {
 
     // Pointers for traversal
     struct Node* current = root;
-    struct Node* parent = NULL; // Tracks the node before 'current'
+    struct Node* parent = NULL; 
 
     // 2. Loop to find the insertion spot
     while (current != NULL) {
@@ -87,9 +83,6 @@ struct Node* insertIterative(struct Node* root, int data) {
     return root; // Return the original root
 }
 
-// ------------------------------------------------------------------
-// --- 2. Non-Recursive (Iterative) Inorder Traversal Function ---
-// ------------------------------------------------------------------
 
 void inorderTraversalIterative(struct Node* root) {
     if (root == NULL) {
